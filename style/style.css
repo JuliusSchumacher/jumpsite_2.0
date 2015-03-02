@@ -1,0 +1,131 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+/* header start */
+
+header {
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	align-content: center;
+	border-bottom: 1px solid #000;
+}
+
+header h1 {
+	font-weight: 300;
+	font-size: 40px;
+	text-align: center;
+	margin: 0 auto;
+	width: 90%;
+}
+
+.sliderButton {
+	margin: auto;
+	float: left;
+	height: 100%;
+}
+
+.sliderButton img {
+	width: 40px;
+}
+
+/* header end */
+
+/* box container start */
+
+#frequent {
+	position: relative;
+	width: 1540px;
+	min-height: 310px;
+	max-height: 620px;
+	margin: 10px auto;
+	margin-bottom: 50px;
+	overflow: hidden;
+}
+
+#less {
+	position: relative;
+	width: 1530px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+/* box container end */
+
+/* box start */
+
+.box {
+	transition: ease 0.3s;
+	border: 1px solid #212121;
+	position: relative;
+	float: left;
+	text-align: center;
+	margin: 0 2px;
+	box-shadow: 2px 2px 10px #fff;
+}
+
+#frequent .box {
+	width: 300px;
+	height: 300px;
+}
+
+#less .box {
+	width: 150px;
+	height: 150px;
+}
+
+#frequent .settingsImg {
+	width: 50px;
+	position: absolute;
+	top: 5px;
+	right: 0;
+}
+
+#less .settingsImg {
+	width: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#frequent .boxImg {
+	width: 45%;
+	padding: 27.5%;
+}
+
+#less .boxImg {
+	width: 60%;
+	padding: 20%;
+}
+
+#less .box h4 {
+	font-size: 28px;
+	font-weight: 300;
+	position: relative;
+	top: -85px;
+}
+#frequent .box h4 {
+	font-size: 45px;
+	font-weight: 300;
+	position: relative;
+	top: -150px;
+}
+
+/* box end */
+
+/* jQuery classes*/
+
+.highlighted {
+	box-shadow: 2px 2px 10px #212121;
+}
