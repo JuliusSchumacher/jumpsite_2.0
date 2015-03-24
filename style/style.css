@@ -36,19 +36,18 @@ header h1 {
 	height: 100%;
 }
 
-.sliderButton img {
-	width: 40px;
+.sliderButton i {
+    font-size: 4em;
 }
-
 /* header end */
 
 /* box container start */
 
 #frequent {
 	position: relative;
-	width: 1540px;
-	min-height: 310px;
-	max-height: 620px;
+	width: 84em;
+	min-height: 21em;
+	max-height: 41em;
 	margin: 10px auto;
 	margin-bottom: 50px;
 	overflow: hidden;
@@ -76,37 +75,13 @@ header h1 {
 }
 
 #frequent .box {
-	width: 300px;
-	height: 300px;
+	width: 20em;
+	height: 20em;
 }
 
 #less .box {
 	width: 150px;
 	height: 150px;
-}
-
-#frequent .settingsImg {
-	width: 50px;
-	position: absolute;
-	top: 5px;
-	right: 0;
-}
-
-#less .settingsImg {
-	width: 30px;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-#frequent .boxImg {
-	width: 45%;
-	padding: 27.5%;
-}
-
-#less .boxImg {
-	width: 60%;
-	padding: 20%;
 }
 
 #less .box h4 {
@@ -115,11 +90,25 @@ header h1 {
 	position: relative;
 	top: -85px;
 }
+
 #frequent .box h4 {
 	font-size: 45px;
 	font-weight: 300;
-	position: relative;
-	top: -150px;
+    margin-top: 4.5em;
+}
+
+#frequent .box .boxSettings {
+    font-size: 3em;
+    position: absolute;
+    right: 0.4em;
+    top: 0.1em;
+}
+
+#frequent .box .boxIcon {
+    position: absolute;
+    font-size: 8em;
+    top: 0.5em;
+    left: 0.75em
 }
 
 /* box end */
