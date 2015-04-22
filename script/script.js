@@ -13,7 +13,7 @@ $(document).ready(function(){
     boxes.push(new Box("mail", "md-email", "https://webmail.kungsbacka.se/owa/auth/logon.aspx?replaceCurrent=1&reason=3&url=https%3a%2f%2fwebmail.kungsbacka.se%2fowa%2f", false, "orange"));
     boxes.push(new Box("print", "md-print", "https://pullprint.kungsbacka.se/login.cfm?dest=index.cfm&", false, "lightGreen"));
     boxes.push(new Box("facebook", "md-account-box", "https://www.facebook.com/", false, "indigo"));
-    boxes.push(new Box("", "md-add", "#", false, "pink"));
+    boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
 
     function findBox(name) {
         for(var i = 0; i < boxes.length; i++) {
@@ -52,7 +52,7 @@ $(document).ready(function(){
     });
 
     $('h4').click(function() {
-        location = findBox($(this).html());
+        window.open(findBox($(this).html()), '_blank');
     });
 });
 
