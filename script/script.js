@@ -1,6 +1,6 @@
-$(document).ready(function(){
+var boxes = [];
 
-    var boxes = [];
+$(document).ready(function(){
 
     boxes.push(new Box("Elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", true, "blue"));
     boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", true, "indigo"));
@@ -14,8 +14,31 @@ $(document).ready(function(){
     boxes.push(new Box("print", "md-print", "https://pullprint.kungsbacka.se/login.cfm?dest=index.cfm&", false, "lightGreen"));
     boxes.push(new Box("facebook", "md-account-box", "https://www.facebook.com/", false, "indigo"));
     boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
+    
+    render();
 
-    function findBox(name) {
+});
+
+function Box(name, icon, link, frequent, color) {
+    this.link = link;
+    this.name = name;
+    this.icon = icon;
+    this.frequent = frequent;
+    this.color = color;
+}
+
+function render() {
+    $('#frequent').html(null);
+    $('#less').html(null);
+
+    for(var i = 0; i < boxes.length; i++) {
+        if(boxes[i].frequent) {
+            $('#frequent').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class=""></input><input type="text" class=""></input></div></div>');
+        } else {
+            $('#less').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4></div>');
+        }
+        
+        function findBox(name) {
         for(var i = 0; i < boxes.length; i++) {
             if (name == boxes[i].name) {
                 return boxes[i].link;
@@ -47,25 +70,13 @@ $(document).ready(function(){
         }
 
         $(this).rotate(rotation);
-        var parent = $(this).parent;
-        $(parent).removeClass('highlighted');
+
+        $(this).siblings('.options').toggleClass('open');
     });
 
-    $('h4').click(function() {
-        window.open(findBox($(this).html()), '_blank');
+    $('.box').dblclick(function() {
+        window.open(findBox($('h4', this).text()), '_blank');
     });
-});
 
-function Box(name, icon, link, frequent, color) {
-    this.link = link;
-    this.name = name;
-    this.icon = icon;
-    this.frequent = frequent;
-    this.color = color;
-
-    if(frequent) {
-        $('#frequent').append('<div class="box ' + this.color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + this.icon + ' boxIcon"></i><h4>' + this.name + '</h4></div>');
-    } else {
-        $('#less').append('<div class="box ' + this.color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + this.icon + ' boxIcon"></i><h4>' + this.name + '</h4></div>');
     }
 }

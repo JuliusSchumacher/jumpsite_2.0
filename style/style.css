@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
-    transition: ease 0.3s;
+    transition: cubic-bezier(.55,0,.1,1) 0.5s;
 }
 
 #wrapper {
@@ -33,6 +33,7 @@ header h1 {
     display: inline;
     margin-left: 35%;
 }
+
 header p {
     display: inline;
     font-size: 0.7em;
@@ -45,7 +46,7 @@ header p {
 }
 
 .sliderButton i {
-    font-size: 4em;
+    font-size: 3em;
 }
 /* header end */
 
@@ -79,6 +80,12 @@ header p {
 	text-align: center;
 	margin: 0.1em;
 	background-color: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #frequent .box {
@@ -104,7 +111,7 @@ header p {
     right: 0.3em;
     top: 0.1em;
     border-radius: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(.55,0,.1,1);
 }
 
 #less .box .boxIcon {
@@ -126,7 +133,7 @@ header p {
     right: 0.4em;
     top: 0.1em;
     border-radius: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(.55,0,.1,1);
 }
 
 #frequent .box .boxIcon {
@@ -137,6 +144,36 @@ header p {
 }
 
 /* box end */
+
+/*box option pane*/
+.options {
+    background-color: inherit;
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    transition: height 0.5s cubic-bezier(.55,0,.1,1);
+    overflow: hidden;
+    border-top: inherit;
+}
+
+.options h6 {
+    margin: 1em auto;
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+.options input {
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    margin: 1em auto;
+    width: 60%
+}
+
+.options input:focus {
+    outline: none;
+}
 
 /* color classes */
 
@@ -204,13 +241,6 @@ header p {
     color: #FF5722;
 }
 
-/* jQuery classes*/
-
-.highlighted {
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0);
-}
-
 .red:hover {
     background-color: #F44336;
 }
@@ -273,4 +303,15 @@ header p {
 
 .deepOrange:hover {
     background-color: #FF5722;
+}
+
+/* jQuery classes*/
+
+.highlighted {
+    color: #fff;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.open {
+    height: 85%;
 }
