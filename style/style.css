@@ -4,6 +4,54 @@ body {
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
     transition: cubic-bezier(.55,0,.1,1) 0.5s;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.slider {
+    height:calc(100% - 5.25em);
+    width: 25%;
+    position: absolute;
+    left: -25%;
+    top:5.25em;
+    background-color: white;
+    border-right: 1px solid #000;
+    transition: cubic-bezier(.55,0,.1,1) 0.7s;
+    overflow: hidden;
+}
+
+.slider h3 {
+    width: 100%;
+    font-size: 1.5em;
+    padding: 0.5em 0;
+    font-weight: 600;
+    margin: 0;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+.slider h3 i {
+    color: rgba(0, 0, 0, 0.54);
+    margin-left: 1em;
+}
+
+.slider .content {
+    margin-left: 3em;
+    height: 0;
+    overflow: hidden;
+    transition: cubic-bezier(.55,0,.1,1) 0.5s;
+}
+
+.slider .copyright {
+    width: 100%;
+    height: 3em;
+    color: #616161;
+    text-align: center;
+    border-top: 1px solid #616161;
+    padding-top: 1em;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
 }
 
 #wrapper {
@@ -12,26 +60,39 @@ body {
 	position: relative;
 }
 
+.fader {
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 5.25em;
+    left: 0;
+    transition: opacity cubic-bezier(.55,0,.1,1) 0.7s;
+    transition-delay: 0.1s;
+}
+
 
 /* header start */
 
 header {
 	width: 98%;
     margin: 0 auto;
-	height: auto;
+	height: 4em;
 	padding: 10px;
 	align-content: center;
-	border-bottom: 1px solid #000;
+	/*border-bottom: 1px solid #000;*/
+    background-color: #4CAF50;
+    color: white;
 }
 
 header h1 {
 	font-weight: 300;
-	font-size: 3em;
-	text-align: center;
-	margin: 0 auto;
+	font-size: 2.5em;
 	width: 80%;
     display: inline;
-    margin-left: 35%;
+    margin-left: 3%;
 }
 
 header p {
@@ -42,12 +103,23 @@ header p {
 .sliderButton {
 	margin: auto;
 	float: left;
-	height: 100%;
+	height: 3em;
+    width: 3em;
+    overflow: hidden;
 }
 
 .sliderButton i {
+    display: inline;
+    float: left;
     font-size: 3em;
+    transition: cubic-bezier(.55,0,.1,1) 0.7s;
 }
+
+.sliderButton div {
+    width: 6em;
+    height: 3em;
+}
+
 /* header end */
 
 /* box container start */
@@ -57,7 +129,7 @@ header p {
 	width: 84em;
 	min-height: 21em;
 	max-height: 41em;
-	margin: 10px auto;
+	margin: 2em auto 1em;
 	margin-bottom: 2em;
 }
 
@@ -314,4 +386,25 @@ header p {
 
 .open {
     height: 85%;
+}
+
+.slide {
+    margin-left: -3em;
+}
+
+.slideOut {
+    left: 0.3%;
+}
+
+.faded {
+    pointer-events: all;
+    opacity: 100;
+}
+
+.active {
+    background-color: #ebebeb;
+}
+
+.read {
+    background-color: #ebebeb;
 }
