@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     boxes.push(new Box("Elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", true, "blue"));
     boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", true, "indigo"));
-    boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", true, "lime"));
+    boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", true, "red"));
     boxes.push(new Box("schema", "md-event", "http://www.novasoftware.se/webviewer/(S(woosp355gavkls55molunc55))/design1.aspx?schoolid=29540&code=123774", true, "purple"));
 
     boxes.push(new Box("drive", "md-cloud", "https://drive.google.com", false, "amber"));
@@ -21,21 +21,33 @@ $(document).ready(function(){
         $('.fader').toggleClass('faded');
     });
 
+    $('.fader').click(function() {
+        $('.sliderIcon').toggleClass('slide');
+        $('.slider').toggleClass('slideOut');
+        $('.fader').toggleClass('faded');
+    });
+
     $('h3').hover(function() {
         $(this).addClass('active');
     }, function() {
         $(this).removeClass('active');
     });
 
+
+    var click = 0;
     $('h3').click(function() {
         $(this).toggleClass('read');
         var text = $(this).text();
-
-        if($('.' + text).height() == 0) {
-            $('.' + text).height('auto');
-            
+        if(click == 0) {
+            click = 1;
         } else {
-            $('.' + text).height('0');
+            click = 0;
+        }
+
+        if (click == 1) {
+            $('.' + text).css({'max-height': '1000px'});
+        } else {
+            $('.' + text).css({'max-height' : '0'});
         }
     });
 
@@ -47,7 +59,7 @@ $(document).ready(function(){
 function Box(name, icon, link, frequent, color) {
     this.link = link;
     this.name = name;
-    this.icon = icon;
+    this.icon = icon; 
     this.frequent = frequent;
     this.color = color;
 }
