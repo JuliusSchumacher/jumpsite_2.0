@@ -42,7 +42,7 @@ body {
 .slider .content {
     background-color: #f5f5f5;
     overflow: hidden;
-    transition: cubic-bezier(.55,0,.1,1) 0.6s;
+    transition: cubic-bezier(.55,0,.1,1) 0.4s;
     transform: scaleY(1);
     transform-origin: top;
     height: auto;
@@ -53,20 +53,27 @@ body {
     margin: 0;
     margin-top: 1em;
     margin-left: 3em;
+    margin-bottom: 1em;
     font-size: 1.2em;
     color: #393939;
 }
 
+.slider .content h5 i {
+    color: rgba(0, 0, 0, 0.54);
+    margin-right: 0.5em;
+}
+
 .slider .content p {
     margin-left: 3.5em;
+    margin-right: 3.5em;
     font-weight: 300;
     color: #414141;
 }
 
 .slider .copyright {
     width: 100%;
-    height: 3em;
-    color: #616161;
+    height: 2.7em;
+    color: #454545;
     text-align: center;
     border-top: 1px solid #616161;
     padding-top: 1em;
@@ -98,8 +105,7 @@ body {
 /* header start */
 
 header {
-	width: 98%;
-    margin: 0 auto;
+	width: 100%;
 	height: 4em;
 	padding: 10px;
 	align-content: center;
@@ -418,7 +424,7 @@ header p {
 }
 
 .slideOut {
-    left: 0.3%;
+    left: 0;
 }
 
 .faded {
