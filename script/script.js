@@ -13,7 +13,7 @@ $(document).ready(function(){
     boxes.push(new Box("mail", "md-email", "https://webmail.kungsbacka.se/owa/auth/logon.aspx?replaceCurrent=1&reason=3&url=https%3a%2f%2fwebmail.kungsbacka.se%2fowa%2f", false, "orange"));
     boxes.push(new Box("print", "md-print", "https://pullprint.kungsbacka.se/login.cfm?dest=index.cfm&", false, "lightGreen"));
     boxes.push(new Box("facebook", "md-account-box", "https://www.facebook.com/", false, "indigo"));
-    boxes.push(new Box("porr", "md-favorite", "http://www.pornhub.com/", false, "orange"));
+    boxes.push(new Box("wikipedia", "md-bookmark", "http://www.wikipedia.com/", false, "deepPurple"));
     boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
 
     $('.sliderButton').click(function() {
@@ -95,6 +95,10 @@ function render() {
     });
 
     $('.box').dblclick(function() {
+        window.open(findBox($('h4', this).text()), '_blank');
+    });
+
+    $('.box').on('tap', function() {
         window.open(findBox($('h4', this).text()), '_blank');
     });
 }
