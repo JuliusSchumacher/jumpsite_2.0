@@ -35,7 +35,6 @@ $(document).ready(function(){
     });
 
 
-    var click = 0;
     $('h3').click(function() {
         $(this).toggleClass('read');
         var text = $(this).text();
@@ -62,21 +61,37 @@ function Box(name, icon, link, frequent, color) {
     this.color = color;
 }
 
+function findBox(name) {
+    for(var i = 0; i < boxes.length; i++) {
+        if (name == boxes[i].name) {
+            return i;
+        }
+    }
+}
+
 function render() {
     $('#frequent').html(null);
     $('#less').html(null);
 
     for(var i = 0; i < boxes.length; i++) {
         if(boxes[i].frequent) {
-            $('#frequent').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class=""></input><input type="text" class=""></input><div><select></select><select></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
+            $('#frequent').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
         } else {
-            $('#less').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class=""></input><input type="text" class=""></input></div></div>');
+            $('#less').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
         }
     }
+    
+    var colors = ["red", "pink", "purple", "deepPurple", "indigo", "blue", "lightBlue", "cyan", "teal", "green", "lightGreen", "lime", "yellow", "amber", "orange", "deepOrange"];
+    for(var i = 0; i < colors.length; i++) {
+        $('.color').append('<option class="' + colors[i] + '">' + colors[i] +'</option>');
+    }
+    
+    var icons = [""]
+    
     function findBox(name) {
         for(var i = 0; i < boxes.length; i++) {
             if (name == boxes[i].name) {
-                return boxes[i].link;
+                return i;
             }
         }
     }
@@ -95,10 +110,23 @@ function render() {
     });
 
     $('.box').dblclick(function() {
-        window.open(findBox($('h4', this).text()), '_blank');
+        window.open(boxes[findBox($('h4', this).text())].link, '_blank');
     });
 
-    $('.box').on('tap', function() {
+    /*$('.box').on('taphold', function() {
         window.open(findBox($('h4', this).text()), '_blank');
+    });*/
+    
+    $('.delete').click(function() {
+        boxes.splice(findBox($(this).parents('.options').siblings('h4', this).text()), 1);
+        render();
+    });
+    
+    $('.save').click(function() {
+        var x = findBox($(this).parents('.options').siblings('h4', this).text());
+        boxes[x].name = $(this).siblings('.name', this).val();
+        boxes[x].link = $(this).siblings('.link', this).val();
+        boxes[x].color = $(this).siblings('div', this).children('.color').find(':selected').text();
+        render();
     });
 }
