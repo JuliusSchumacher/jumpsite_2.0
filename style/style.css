@@ -69,6 +69,16 @@ body {
     color: #414141;
 }
 
+.slider input {
+    float: right;
+    margin-right: 2em;
+}
+
+.slider button {
+    float: right;
+    margin-right: 2em; 
+}
+
 .slider .copyright {
     width: 100%;
     height: 2.7em;
@@ -343,7 +353,12 @@ header p {
 #less .options .save {
     right: -15%;
 }
+
 /* color classes */
+.black {
+    color: #212121;
+}
+
 .red {
     color: #F44336;
 }
@@ -406,6 +421,10 @@ header p {
 
 .deepOrange {
     color: #FF5722;
+}
+
+.black:hover {
+    background-color: #212121;
 }
 
 .red:hover {

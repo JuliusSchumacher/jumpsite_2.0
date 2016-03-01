@@ -1,31 +1,22 @@
 var boxes = [];
 
 $(document).ready(function(){
+    
     boxes.push(new Box("elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", "true", "blue"));
     boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", "true", "indigo"));
     boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", "true", "red"));
     boxes.push(new Box("schema", "md-event", "http://www.novasoftware.se/webviewer/(S(woosp355gavkls55molunc55))/design1.aspx?schoolid=29540&code=123774", "true", "purple"));
 
-    boxes.push(new Box("drive", "md-cloud", "https://drive.google.com", false, "amber"));
+    boxes.push(new Box("office", "md-cloud", "https://www.office.com/", false, "orange"));
     boxes.push(new Box("bibliotek", "md-book", "http://www.eloflindalvsgymnasium.kungsbacka.se/For-elever/Bibliotek1/", false, "red"));
     boxes.push(new Box("skola24", "md-access-time", "https://kungsbacka.skola24.se/", false, "green"));
     boxes.push(new Box("mail", "md-email", "https://webmail.kungsbacka.se/owa/auth/logon.aspx?replaceCurrent=1&reason=3&url=https%3a%2f%2fwebmail.kungsbacka.se%2fowa%2f", false, "orange"));
     boxes.push(new Box("print", "md-print", "https://pullprint.kungsbacka.se/login.cfm?dest=index.cfm&", false, "lightGreen"));
     boxes.push(new Box("facebook", "md-account-box", "https://www.facebook.com/", false, "indigo"));
-    boxes.push(new Box("wikipedia", "md-bookmark", "http://www.wikipedia.com/", false, "deepPurple"));
+    boxes.push(new Box("wikipedia", "md-bookmark", "http://www.wikipedia.org/", false, "black"));
     boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
     
-    $(".cookies").append(document.cookie);
-    
-    if($.cookie("isSet")) {
-        for(var i = 0; i < boxes.length; i++) {
-            boxes[i].name = $.cookie(i + "name");
-            boxes[i].icon = $.cookie(i + "icon");
-            boxes[i].link = $.cookie(i + "link");
-            boxes[i].frequent = $.cookie(i + "frequent");
-            boxes[i].color = $.cookie(i + "color");
-        }
-    }
+    $(".cookies").text(document.cookie);
 
     $('.sliderButton').click(function() {
         $('.sliderIcon').toggleClass('slide');
@@ -58,6 +49,37 @@ $(document).ready(function(){
             $('.' + text).css({'max-height' : '0'});
         }
     });
+    
+    $('.deleteCookies').click(function() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+    	   var cookie = cookies[i];
+    	   var eqPos = cookie.indexOf("=");
+    	   var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    	   document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+        return render();
+    });
+    
+    $('.useCookies').click(function() {
+        if($.cookie("isSet") == "true") {
+            $.cookie("isSet", "false");
+            location = location;
+        } else {
+            $.cookie("isSet", "true");
+        }
+        
+        for(var i = 0; i < boxes.length; i++) {
+            $.cookie(i + "name", boxes[i].name);
+            $.cookie(i + "link", boxes[i].link);
+            $.cookie(i + "color", boxes[i].color);
+            $.cookie(i + "icon", boxes[i].icon);
+            $.cookie(i + "frequent", boxes[i].frequent);
+        }
+        
+        return render();
+    });
 
     render();
 
@@ -81,6 +103,18 @@ function findBox(name) {
 }
 
 function render() {
+    $('.cookies').text(document.cookie);
+    
+    if($.cookie("isSet") == "true") {
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].name = $.cookie(i + "name");
+            boxes[i].icon = $.cookie(i + "icon");
+            boxes[i].link = $.cookie(i + "link");
+            boxes[i].frequent = $.cookie(i + "frequent");
+            boxes[i].color = $.cookie(i + "color");
+        }
+    }
+    
     $('#frequent').html(null);
     $('#less').html(null);
 
@@ -92,7 +126,7 @@ function render() {
         }
     }
     
-    var colors = ["red", "pink", "purple", "deepPurple", "indigo", "blue", "lightBlue", "cyan", "teal", "green", "lightGreen", "lime", "yellow", "amber", "orange", "deepOrange"];
+    var colors = ["red", "pink", "purple", "deepPurple", "indigo", "blue", "lightBlue", "cyan", "teal", "green", "lightGreen", "lime", "yellow", "amber", "orange", "deepOrange", "black"];
     for(var i = 0; i < colors.length; i++) {
         $('.color').append('<option class="' + colors[i] + '">' + colors[i] +'</option>');
     }
@@ -143,15 +177,13 @@ function render() {
         $.cookie(x + "link", boxes[x].link);
         $.cookie(x + "color", boxes[x].color);
         
-        if(!$.cookie("isSet")) {
-            $.cookie("isSet", true);
-            for(var i = 0; i < boxes.length; i++) {
-                $.cookie(i + "name", boxes[i].name);
-                $.cookie(i + "link", boxes[i].link);
-                $.cookie(i + "color", boxes[i].color);
-                $.cookie(i + "icon", boxes[i].icon);
-                $.cookie(i + "frequent", boxes[i].frequent);
-            }
+        $.cookie("isSet", "true");
+        for(var i = 0; i < boxes.length; i++) {
+            $.cookie(i + "name", boxes[i].name);
+            $.cookie(i + "link", boxes[i].link);
+            $.cookie(i + "color", boxes[i].color);
+            $.cookie(i + "icon", boxes[i].icon);
+            $.cookie(i + "frequent", boxes[i].frequent);
         }
         
         render();
