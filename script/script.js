@@ -1,11 +1,10 @@
 var boxes = [];
 
 $(document).ready(function(){
-
-    boxes.push(new Box("elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", true, "blue"));
-    boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", true, "indigo"));
-    boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", true, "red"));
-    boxes.push(new Box("schema", "md-event", "http://www.novasoftware.se/webviewer/(S(woosp355gavkls55molunc55))/design1.aspx?schoolid=29540&code=123774", true, "purple"));
+    boxes.push(new Box("elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", "true", "blue"));
+    boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", "true", "indigo"));
+    boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", "true", "red"));
+    boxes.push(new Box("schema", "md-event", "http://www.novasoftware.se/webviewer/(S(woosp355gavkls55molunc55))/design1.aspx?schoolid=29540&code=123774", "true", "purple"));
 
     boxes.push(new Box("drive", "md-cloud", "https://drive.google.com", false, "amber"));
     boxes.push(new Box("bibliotek", "md-book", "http://www.eloflindalvsgymnasium.kungsbacka.se/For-elever/Bibliotek1/", false, "red"));
@@ -15,6 +14,18 @@ $(document).ready(function(){
     boxes.push(new Box("facebook", "md-account-box", "https://www.facebook.com/", false, "indigo"));
     boxes.push(new Box("wikipedia", "md-bookmark", "http://www.wikipedia.com/", false, "deepPurple"));
     boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
+    
+    $(".cookies").append(document.cookie);
+    
+    if($.cookie("isSet")) {
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].name = $.cookie(i + "name");
+            boxes[i].icon = $.cookie(i + "icon");
+            boxes[i].link = $.cookie(i + "link");
+            boxes[i].frequent = $.cookie(i + "frequent");
+            boxes[i].color = $.cookie(i + "color");
+        }
+    }
 
     $('.sliderButton').click(function() {
         $('.sliderIcon').toggleClass('slide');
@@ -74,7 +85,7 @@ function render() {
     $('#less').html(null);
 
     for(var i = 0; i < boxes.length; i++) {
-        if(boxes[i].frequent) {
+        if(boxes[i].frequent == "true") {
             $('#frequent').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
         } else {
             $('#less').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
@@ -127,6 +138,22 @@ function render() {
         boxes[x].name = $(this).siblings('.name', this).val();
         boxes[x].link = $(this).siblings('.link', this).val();
         boxes[x].color = $(this).siblings('div', this).children('.color').find(':selected').text();
+        
+        $.cookie(x + "name", boxes[x].name);
+        $.cookie(x + "link", boxes[x].link);
+        $.cookie(x + "color", boxes[x].color);
+        
+        if(!$.cookie("isSet")) {
+            $.cookie("isSet", true);
+            for(var i = 0; i < boxes.length; i++) {
+                $.cookie(i + "name", boxes[i].name);
+                $.cookie(i + "link", boxes[i].link);
+                $.cookie(i + "color", boxes[i].color);
+                $.cookie(i + "icon", boxes[i].icon);
+                $.cookie(i + "frequent", boxes[i].frequent);
+            }
+        }
+        
         render();
     });
 }
