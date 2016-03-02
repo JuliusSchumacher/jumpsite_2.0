@@ -1,28 +1,125 @@
 @media screen and (min-width: 21em) {
     #frequent {
         max-width: 21em;
+        top: 8em;
+        position: relative;
     }
-    
+
     #less {
         max-width: 21em;
+        top: 8em;
+        position: relative;
+    }
+
+    header {
+        position: fixed;
+    }
+
+    .boxSettings {
+        display: none;
     }
 }
+
 @media screen and (min-width: 42em) {
     #frequent {
         max-width: 42em;
+        top: 8em;
+        position: relative;
     }
-    
+
     #less {
         max-width: 42em;
-    } 
+        top: 8em;
+        position: relative;
+    }
+
+    header {
+        position: fixed;
+    }
 }
 
 @media screen and (min-width: 83.5em) {
     #frequent {
         max-width: 83.5em;
     }
-    
+
     #less {
         max-width: 83.5em;
+    }
+
+    header {
+        position: relative;
+    }
+
+    .boxSettings {
+        display: block;
+    }
+
+    .black:hover {
+        background-color: #212121;
+    }
+
+    .red:hover {
+        background-color: #F44336;
+    }
+
+    .pink:hover {
+        background-color: #E91E63;
+    }
+
+    .purple:hover {
+        background-color: #9C27B0;
+    }
+
+    .deepPurple:hover {
+        background-color: #673AB7;
+    }
+
+    .indigo:hover {
+        background-color: #3F51B5;
+    }
+
+    .blue:hover {
+        background-color: #2196F3;
+    }
+
+    .lightBlue:hover {
+        background-color: #03A9F4;
+    }
+
+    .cyan:hover {
+        background-color: #00BCD4;
+    }
+
+    .teal:hover {
+        background-color: #009688;
+    }
+
+    .green:hover {
+        background-color: #4CAF50;
+    }
+
+    .lightGreen:hover {
+        background-color: #8BC34A;
+    }
+
+    .lime:hover {
+        background-color: #CDDC39;
+    }
+
+    .yellow:hover {
+        background-color: #FFEB3B;
+    }
+
+    .amber:hover {
+        background-color: #FFC107;
+    }
+
+    .orange:hover {
+        background-color: #FF9800;
+    }
+
+    .deepOrange:hover {
+        background-color: #FF5722;
     }
 }
