@@ -1,0 +1,28 @@
+@media screen and (min-width: 21em) {
+    #frequent {
+        max-width: 21em;
+    }
+    
+    #less {
+        max-width: 21em;
+    }
+}
+@media screen and (min-width: 42em) {
+    #frequent {
+        max-width: 42em;
+    }
+    
+    #less {
+        max-width: 42em;
+    } 
+}
+
+@media screen and (min-width: 83.5em) {
+    #frequent {
+        max-width: 83.5em;
+    }
+    
+    #less {
+        max-width: 83.5em;
+    }
+}
