@@ -13,32 +13,106 @@
 
     header {
         position: fixed;
+        height: 6em;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+        margin-left: 0.5em;
+    }
+
+    .sliderButton {
+        margin: 1.1em 0em 0.5em 1em;
+        height: 3em;
+        width: 3em;
+    }
+
+    .sliderButton i {
+        font-size: 3em;
+    }
+
+    .sliderButton div {
+        width: 6em;
+        height: 3em;
     }
 
     .boxSettings {
         display: none;
+    }
+    
+    .slider {
+        top: 7em;
     }
 }
 
 @media screen and (min-width: 42em) {
     #frequent {
         max-width: 42em;
-        top: 8em;
+        top: 15em;
         position: relative;
     }
 
     #less {
         max-width: 42em;
-        top: 8em;
+        top: 15em;
         position: relative;
     }
 
     header {
         position: fixed;
+        height: 10em;
+    }
+
+    header h1 {
+        font-size: 6em;
+    }
+
+    .sliderButton {
+        margin: 1.5em 0em 0.5em 2em;
+        height: 6em;
+        width: 6em;
+    }
+
+    .sliderButton i {
+        font-size: 6em;
+    }
+
+    .sliderButton div {
+        width: 12em;
+        height: 6em;
+    }
+
+    .boxSettings {
+        display: none;
+    }
+    
+    .slider {
+        top: 11em;
     }
 }
 
 @media screen and (min-width: 83.5em) {
+    .sliderButton {
+        margin: 0.5em 0em 0.5em 1em;
+        float: left;
+        height: 3em;
+        width: 3em;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .sliderButton i {
+        display: inline;
+        float: left;
+        font-size: 3em;
+        transition: cubic-bezier(.55,0,.1,1) 0.8s;
+    }
+
+    .sliderButton div {
+        width: 6em;
+        height: 3em;
+    }
+    
     #frequent {
         max-width: 83.5em;
     }
@@ -49,6 +123,11 @@
 
     header {
         position: relative;
+        height: 4em;
+    }
+    
+    header h1 {
+        font-size: 2.5em;
     }
 
     .boxSettings {

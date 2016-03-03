@@ -127,11 +127,16 @@ function render() {
     }
 
     var colors = ["red", "pink", "purple", "deepPurple", "indigo", "blue", "lightBlue", "cyan", "teal", "green", "lightGreen", "lime", "yellow", "amber", "orange", "deepOrange", "black"];
+
     for(var i = 0; i < colors.length; i++) {
         $('.color').append('<option class="' + colors[i] + '">' + colors[i] +'</option>');
     }
 
-    var icons = [""]
+    var icons = ["md-favorite", "md-home", "md-chevron-right", "md-chevron-left", "md-expand-less", "md-expand-more", "md-local-restaurant", "md-event", "md-cloud", "md-book", "md-access-time", "md-email", "md-print", "md-account-box", "md-bookmark", "md-add"];
+
+    for(var i = 0; i < icons.length; i++) {
+        $('.icon').append('<option class="' + icons[i] + '">' + icons[i] +'</option>');
+    }
 
     function findBox(name) {
         for(var i = 0; i < boxes.length; i++) {
@@ -142,7 +147,7 @@ function render() {
     }
 
     if($('body').width() > 1320) {
-        
+
         $('.box').hover(function() {
             $(this).addClass('highlighted');
         }, function() {
@@ -163,10 +168,22 @@ function render() {
     } else {
         $('.box').on('tap', function() {
             window.open(boxes[findBox($('h4', this).text())].link, '_blank');
-    });
+        });
+        
         $('.box').on('taphold', function () {
-
             $(this).children('.options').toggleClass('open');
+        });
+
+        $('body').on('swiperight', function() {
+            $('.sliderIcon').addClass('slide');
+            $('.slider').addClass('slideOut');
+            $('.fader').addClass('faded');
+        });
+        
+        $('body').on('swipeleft', function() {
+            $('.sliderIcon').removeClass('slide');
+            $('.slider').removeClass('slideOut');
+            $('.fader').removeClass('faded');
         });
     }
 
@@ -180,6 +197,7 @@ function render() {
         boxes[x].name = $(this).siblings('.name', this).val();
         boxes[x].link = $(this).siblings('.link', this).val();
         boxes[x].color = $(this).siblings('div', this).children('.color').find(':selected').text();
+        boxes[x].icon = $(this).siblings('div', this).children('.icon').find(':selected').text();
 
         $.cookie(x + "name", boxes[x].name);
         $.cookie(x + "link", boxes[x].link);
