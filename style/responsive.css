@@ -115,10 +115,12 @@
     
     #frequent {
         max-width: 83.5em;
+        top: 2em;
     }
 
     #less {
         max-width: 83.5em;
+        top: 2em;
     }
 
     header {
