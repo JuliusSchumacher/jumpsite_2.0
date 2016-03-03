@@ -113,6 +113,10 @@
         height: 3em;
     }
     
+    .slider {
+        top: 5em;
+    }
+    
     #frequent {
         max-width: 83.5em;
         top: 2em;
