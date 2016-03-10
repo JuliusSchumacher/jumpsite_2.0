@@ -214,4 +214,17 @@ function render() {
 
         render();
     });
+    
+    function setExpire() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+    	   var cookie = cookies[i];
+    	   var eqPos = cookie.indexOf("=");
+    	   var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    	   document.cookie = name + "=;expires=Wed, 01 Jan 2070 00:00:00 GMT";
+        }
+    }
+    
+    setExpire();
 }
