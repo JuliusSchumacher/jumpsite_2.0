@@ -35,6 +35,10 @@ body {
     cursor: pointer;
 }
 
+.slider h3:hover {
+    background-color: #f0f0f0;
+}
+
 .slider h3 i {
     color: rgba(0, 0, 0, 0.54);
     margin-left: 1em;
@@ -422,11 +426,6 @@ header p {
 
 /* jQuery classes*/
 
-.highlighted {
-    color: #fff;
-    box-shadow: 0px 2px 10px 3px rgba(44, 44, 44, 0.55);
-}
-
 .open {
     height: 85%;
 }
@@ -442,10 +441,6 @@ header p {
 .faded {
     pointer-events: all;
     opacity: 100;
-}
-
-.active {
-    background-color: #f0f0f0;
 }
 
 .read {

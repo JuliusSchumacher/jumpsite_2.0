@@ -1,7 +1,9 @@
 var boxes = [];
 
-$(document).ready(function(){
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
 
+document.addEventListener('DOMContentLoaded', function() {
     boxes.push(new Box("elof", "md-home", "http://www.eloflindalvsgymnasium.kungsbacka.se/", "true", "blue"));
     boxes.push(new Box("fronter", "md-chevron-right", "https://fronter.com/kungsbacka/", "true", "indigo"));
     boxes.push(new Box("bamba", "md-local-restaurant", "http://meny.dinskolmat.se/elof-lindalvs-gymnasium/", "true", "red"));
@@ -16,41 +18,42 @@ $(document).ready(function(){
     boxes.push(new Box("wikipedia", "md-bookmark", "http://www.wikipedia.org/", false, "black"));
     boxes.push(new Box("legacy", "md-add", "http://jumpsite.crew11.se/", false, "pink"));
 
-    $(".cookies").text(document.cookie);
+    $('.cookies').textContent = document.cookie;
 
-    $('.sliderButton').click(function() {
-        $('.sliderIcon').toggleClass('slide');
-        $('.slider').toggleClass('slideOut');
-        $('.fader').toggleClass('faded');
+    $('.sliderButton').addEventListener('click', function() {
+        $('.sliderIcon').classList.toggle('slide');
+        $('.slider').classList.toggle('slideOut');
+        $('.fader').classList.toggle('faded');
     });
 
-    $('.fader').click(function() {
-        $('.sliderIcon').toggleClass('slide');
-        $('.slider').toggleClass('slideOut');
-        $('.fader').toggleClass('faded');
+    $('.fader').addEventListener('click', function() {
+        $('.sliderIcon').classList.toggle('slide');
+        $('.slider').classList.toggle('slideOut');
+        $('.fader').classList.toggle('faded');
     });
 
-    $('h3').hover(function() {
-        $(this).addClass('active');
-    }, function() {
-        $(this).removeClass('active');
-    });
+    /* Replaced with CSS */
+    // $('h3').hover(function() {
+    //     $(this).addClass('active');
+    // }, function() {
+    //     $(this).removeClass('active');
+    // });
 
 
-    $('h3').click(function() {
-        $(this).toggleClass('read');
-        var text = $(this).text();
+    $$('h3').forEach(el => el.addEventListener('click', function() {
+        this.classList.toggle('read');
+        var text = this.textContent;
 
-        $('.' + text).toggleClass('click');
+        $('.' + text).classList.toggle('click');
 
-        if($('.' + text).hasClass('click')) {
-            $('.' + text).css({'max-height': '1000px'});
+        if($('.' + text).classList.contains('click')) {
+            $('.' + text).style.maxHeight = "1000px"
         } else {
-            $('.' + text).css({'max-height' : '0'});
+            $('.' + text).style.maxHeight = "0"
         }
-    });
+    }));
 
-    $('.deleteCookies').click(function() {
+    $('.deleteCookies').addEventListener('click', function() {
         var cookies = document.cookie.split(";");
 
         for (var i = 0; i < cookies.length; i++) {
@@ -62,24 +65,24 @@ $(document).ready(function(){
         return render();
     });
 
-    $('.useCookies').click(function() {
-        if($.cookie("isSet") == "true") {
-            $.cookie("isSet", "false");
-            location = location;
-        } else {
-            $.cookie("isSet", "true");
-        }
+    // $('.useCookies').click(function() {
+    //     if($.cookie("isSet") == "true") {
+    //         $.cookie("isSet", "false");
+    //         location = location;
+    //     } else {
+    //         $.cookie("isSet", "true");
+    //     }
 
-        for(var i = 0; i < boxes.length; i++) {
-            $.cookie(i + "name", boxes[i].name);
-            $.cookie(i + "link", boxes[i].link);
-            $.cookie(i + "color", boxes[i].color);
-            $.cookie(i + "icon", boxes[i].icon);
-            $.cookie(i + "frequent", boxes[i].frequent);
-        }
+    //     for(var i = 0; i < boxes.length; i++) {
+    //         $.cookie(i + "name", boxes[i].name);
+    //         $.cookie(i + "link", boxes[i].link);
+    //         $.cookie(i + "color", boxes[i].color);
+    //         $.cookie(i + "icon", boxes[i].icon);
+    //         $.cookie(i + "frequent", boxes[i].frequent);
+    //     }
 
-        return render();
-    });
+    //     return render();
+    // });
 
     render();
 
@@ -103,39 +106,39 @@ function findBox(name) {
 }
 
 function render() {
-    $('.cookies').text(document.cookie);
+    $('.cookies').textContent = document.cookie;
 
-    if($.cookie("isSet") == "true") {
-        for(var i = 0; i < boxes.length; i++) {
-            boxes[i].name = $.cookie(i + "name");
-            boxes[i].icon = $.cookie(i + "icon");
-            boxes[i].link = $.cookie(i + "link");
-            boxes[i].frequent = $.cookie(i + "frequent");
-            boxes[i].color = $.cookie(i + "color");
-        }
-    }
+    // if($.cookie("isSet") == "true") {
+    //     for(var i = 0; i < boxes.length; i++) {
+    //         boxes[i].name = $.cookie(i + "name");
+    //         boxes[i].icon = $.cookie(i + "icon");
+    //         boxes[i].link = $.cookie(i + "link");
+    //         boxes[i].frequent = $.cookie(i + "frequent");
+    //         boxes[i].color = $.cookie(i + "color");
+    //     }
+    // }
 
-    $('#frequent').html(null);
-    $('#less').html(null);
+    $('#frequent').textContent = null
+    $('#less').textContent = null
 
     for(var i = 0; i < boxes.length; i++) {
         if(boxes[i].frequent == "true") {
-            $('#frequent').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
+            $('#frequent').innerHTML += ('<div data-long-press-delay="1000" class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
         } else {
-            $('#less').append('<div class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
+            $('#less').innerHTML += ('<div data-long-press-delay="1000" class="box ' + boxes[i].color + '"><i class="md-expand-more boxSettings"></i><i class=" ' + boxes[i].icon + ' boxIcon"></i><h4>' + boxes[i].name + '</h4><div class = "options"><h6>Options</h6><input type="text" class="name" value="' + boxes[i].name + '"></input><input type="text" class="link" value="' + boxes[i].link + '"></input><div><select class="icon"></select><select class="color"></select></div><i class="delete md-delete"></i><i class="save md-check"></i></div></div>');
         }
     }
 
     var colors = ["red", "pink", "purple", "deepPurple", "indigo", "blue", "lightBlue", "cyan", "teal", "green", "lightGreen", "lime", "yellow", "amber", "orange", "deepOrange", "black"];
 
     for(var i = 0; i < colors.length; i++) {
-        $('.color').append('<option class="' + colors[i] + '">' + colors[i] +'</option>');
+        $$('.color').forEach(el => el.innerHTML += '<option class="' + colors[i] + '">' + colors[i] +'</option>')
     }
 
     var icons = ["md-favorite", "md-home", "md-chevron-right", "md-chevron-left", "md-expand-less", "md-expand-more", "md-local-restaurant", "md-event", "md-cloud", "md-book", "md-access-time", "md-email", "md-print", "md-account-box", "md-bookmark", "md-add"];
 
     for(var i = 0; i < icons.length; i++) {
-        $('.icon').append('<option class="' + icons[i] + '">' + icons[i] +'</option>');
+        $$('.icon').forEach(el => el.innerHTML += '<option class="' + icons[i] + '">' + icons[i] +'</option>')
     }
 
     function findBox(name) {
@@ -146,74 +149,62 @@ function render() {
         }
     }
 
-    if($('body').width() > 1320) {
+    if($('body').offsetWidth > 1320) {
+        /* Replaced with CSS */
+        // $('.box').hover(function() {
+        //     $(this).addClass('highlighted');
+        // }, function() {
+        //     $(this).removeClass('highlighted');
+        // });
 
-        $('.box').hover(function() {
-            $(this).addClass('highlighted');
-        }, function() {
-            $(this).removeClass('highlighted');
-        });
+        $$('.boxSettings').forEach(el => el.addEventListener('click', function () {
+            this.classList.toggle('rotate');
 
-        $('.boxSettings').click(function () {
+            this.parentElement.querySelector('.options').classList.toggle('open');
+        }));
 
-            $(this).toggleClass('rotate');
-
-            $(this).siblings('.options').toggleClass('open');
-        });
-
-        $('.box').dblclick(function() {
-            window.open(boxes[findBox($('h4', this).text())].link, '_blank');
-        });
+        $$('.box').forEach(el => el.addEventListener('dblclick', function() {
+            window.open(boxes[findBox(this.querySelector('h4').textContent)].link, '_blank');
+        }));
 
     } else {
-        $('.box').on('tap', function() {
-            window.open(boxes[findBox($('h4', this).text())].link, '_blank');
-        });
-        
-        $('.box').on('taphold', function () {
-            $(this).children('.options').toggleClass('open');
-        });
+        $$('.box').forEach(el => el.addEventListener('click', function() {
+            window.open(boxes[findBox(this.querySelector('h4').textContent)].link, '_blank');
+        }));
 
-        $('body').on('swiperight', function() {
-            $('.sliderIcon').addClass('slide');
-            $('.slider').addClass('slideOut');
-            $('.fader').addClass('faded');
-        });
-        
-        $('body').on('swipeleft', function() {
-            $('.sliderIcon').removeClass('slide');
-            $('.slider').removeClass('slideOut');
-            $('.fader').removeClass('faded');
-        });
+        $$('.box').forEach(el => el.addEventListener('long-press', function () {
+            this.querySelector('.options').classList.toggle('open');
+        }));
     }
 
-    $('.delete').click(function() {
-        boxes.splice(findBox($(this).parents('.options').siblings('h4', this).text()), 1);
+    $$('.delete').forEach(el => el.addEventListener('click', function() {
+        boxes.splice(findBox(this.parentElement.parentElement.querySelector('h4').textContent), 1);
         render();
-    });
+    }));
 
-    $('.save').click(function() {
-        var x = findBox($(this).parents('.options').siblings('h4', this).text());
-        boxes[x].name = $(this).siblings('.name', this).val();
-        boxes[x].link = $(this).siblings('.link', this).val();
-        boxes[x].color = $(this).siblings('div', this).children('.color').find(':selected').text();
-        boxes[x].icon = $(this).siblings('div', this).children('.icon').find(':selected').text();
+    $$('.save').forEach(el => el.addEventListener('click', function() {
 
-        $.cookie(x + "name", boxes[x].name);
-        $.cookie(x + "link", boxes[x].link);
-        $.cookie(x + "color", boxes[x].color);
+        var x = findBox(this.parentElement.parentElement.querySelector('h4').textContent);
+        boxes[x].name = this.parentElement.querySelector('.name').value;
+        boxes[x].link = this.parentElement.querySelector('.link').value;
+        boxes[x].color = this.parentElement.querySelector('div .color').value;
+        boxes[x].icon = this.parentElement.querySelector('div .icon').value;
 
-        $.cookie("isSet", "true");
-        for(var i = 0; i < boxes.length; i++) {
-            $.cookie(i + "name", boxes[i].name);
-            $.cookie(i + "link", boxes[i].link);
-            $.cookie(i + "color", boxes[i].color);
-            $.cookie(i + "icon", boxes[i].icon);
-            $.cookie(i + "frequent", boxes[i].frequent);
-        }
+        // $.cookie(x + "name", boxes[x].name);
+        // $.cookie(x + "link", boxes[x].link);
+        // $.cookie(x + "color", boxes[x].color);
+
+        // $.cookie("isSet", "true");
+        // for(var i = 0; i < boxes.length; i++) {
+        //     $.cookie(i + "name", boxes[i].name);
+        //     $.cookie(i + "link", boxes[i].link);
+        //     $.cookie(i + "color", boxes[i].color);
+        //     $.cookie(i + "icon", boxes[i].icon);
+        //     $.cookie(i + "frequent", boxes[i].frequent);
+        // }
 
         render();
-    });
+    }));
     
     function setExpire() {
         var cookies = document.cookie.split(";");
