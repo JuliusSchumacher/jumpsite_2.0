@@ -1,3 +1,5 @@
+import Cookies from "./js.cookie.min.mjs";
+
 var boxes = [];
 
 const $ = document.querySelector.bind(document)
@@ -65,24 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return render();
     });
 
-    // $('.useCookies').click(function() {
-    //     if($.cookie("isSet") == "true") {
-    //         $.cookie("isSet", "false");
-    //         location = location;
-    //     } else {
-    //         $.cookie("isSet", "true");
-    //     }
+    $('.useCookies').addEventListener('click', function() {
+        if(Cookies.get('isSet') === "true") {
+            Cookies.set('isSet', "false")
+            location.reload()
+        } else {
+            Cookies.set('isSet', "true")
+        }
 
-    //     for(var i = 0; i < boxes.length; i++) {
-    //         $.cookie(i + "name", boxes[i].name);
-    //         $.cookie(i + "link", boxes[i].link);
-    //         $.cookie(i + "color", boxes[i].color);
-    //         $.cookie(i + "icon", boxes[i].icon);
-    //         $.cookie(i + "frequent", boxes[i].frequent);
-    //     }
-
-    //     return render();
-    // });
+        for(var i = 0; i < boxes.length; i++) {
+            Cookies.set(i + "name", boxes[i].name);
+            Cookies.set(i + "link", boxes[i].link);
+            Cookies.set(i + "color", boxes[i].color);
+            Cookies.set(i + "icon", boxes[i].icon);
+            Cookies.set(i + "frequent", boxes[i].frequent);
+        }
+        
+        return render();
+    });
 
     render();
 
@@ -108,15 +110,15 @@ function findBox(name) {
 function render() {
     $('.cookies').textContent = document.cookie;
 
-    // if($.cookie("isSet") == "true") {
-    //     for(var i = 0; i < boxes.length; i++) {
-    //         boxes[i].name = $.cookie(i + "name");
-    //         boxes[i].icon = $.cookie(i + "icon");
-    //         boxes[i].link = $.cookie(i + "link");
-    //         boxes[i].frequent = $.cookie(i + "frequent");
-    //         boxes[i].color = $.cookie(i + "color");
-    //     }
-    // }
+    if(Cookies.get('isSet') === "true") {
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].name = Cookies.get(i + "name");
+            boxes[i].icon = Cookies.get(i + "icon");
+            boxes[i].link = Cookies.get(i + "link");
+            boxes[i].frequent = Cookies.get(i + "frequent");
+            boxes[i].color = Cookies.get(i + "color");
+        }
+    }
 
     $('#frequent').textContent = null
     $('#less').textContent = null
@@ -190,18 +192,18 @@ function render() {
         boxes[x].color = this.parentElement.querySelector('div .color').value;
         boxes[x].icon = this.parentElement.querySelector('div .icon').value;
 
-        // $.cookie(x + "name", boxes[x].name);
-        // $.cookie(x + "link", boxes[x].link);
-        // $.cookie(x + "color", boxes[x].color);
+        Cookies.set(x + "name", boxes[x].name);
+        Cookies.set(x + "link", boxes[x].link);
+        Cookies.set(x + "color", boxes[x].color);
 
-        // $.cookie("isSet", "true");
-        // for(var i = 0; i < boxes.length; i++) {
-        //     $.cookie(i + "name", boxes[i].name);
-        //     $.cookie(i + "link", boxes[i].link);
-        //     $.cookie(i + "color", boxes[i].color);
-        //     $.cookie(i + "icon", boxes[i].icon);
-        //     $.cookie(i + "frequent", boxes[i].frequent);
-        // }
+        Cookies.set('isSet', "true");
+        for(var i = 0; i < boxes.length; i++) {
+            Cookies.set(i + "name", boxes[i].name);
+            Cookies.set(i + "link", boxes[i].link);
+            Cookies.set(i + "color", boxes[i].color);
+            Cookies.set(i + "icon", boxes[i].icon);
+            Cookies.set(i + "frequent", boxes[i].frequent);
+        }
 
         render();
     }));
