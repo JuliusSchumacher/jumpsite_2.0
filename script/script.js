@@ -34,14 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         $('.fader').classList.toggle('faded');
     });
 
-    /* Replaced with CSS */
-    // $('h3').hover(function() {
-    //     $(this).addClass('active');
-    // }, function() {
-    //     $(this).removeClass('active');
-    // });
-
-
     $$('h3').forEach(el => el.addEventListener('click', function() {
         this.classList.toggle('read');
         var text = this.textContent;
@@ -152,13 +144,6 @@ function render() {
     }
 
     if($('body').offsetWidth > 1320) {
-        /* Replaced with CSS */
-        // $('.box').hover(function() {
-        //     $(this).addClass('highlighted');
-        // }, function() {
-        //     $(this).removeClass('highlighted');
-        // });
-
         $$('.boxSettings').forEach(el => el.addEventListener('click', function () {
             this.classList.toggle('rotate');
 
