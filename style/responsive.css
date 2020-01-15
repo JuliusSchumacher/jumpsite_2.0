@@ -1,215 +1,214 @@
 @media screen and (min-width: 21em) {
-    #frequent {
-        max-width: 21em;
-        top: 8em;
-        position: relative;
-    }
+  #frequent {
+    max-width: 21em;
+    top: 8em;
+    position: relative;
+  }
 
-    #less {
-        max-width: 21em;
-        top: 8em;
-        position: relative;
-    }
+  #less {
+    max-width: 21em;
+    top: 8em;
+    position: relative;
+  }
 
-    header {
-        position: fixed;
-        height: 6em;
-    }
+  header {
+    position: fixed;
+    height: 6em;
+  }
 
-    header h1 {
-        font-size: 3.5em;
-        margin-left: 0.5em;
-    }
+  header h1 {
+    font-size: 3.5em;
+    margin-left: 0.5em;
+  }
 
-    .sliderButton {
-        margin: 1.1em 0em 0.5em 1em;
-        height: 3em;
-        width: 3em;
-    }
+  .sliderButton {
+    margin: 1.1em 0em 0.5em 1em;
+    height: 3em;
+    width: 3em;
+  }
 
-    .sliderButton i {
-        font-size: 3em;
-    }
+  .sliderButton i {
+    font-size: 3em;
+  }
 
-    .sliderButton div {
-        width: 6em;
-        height: 3em;
-    }
+  .sliderButton div {
+    width: 6em;
+    height: 3em;
+  }
 
-    .boxSettings {
-        display: none;
-    }
-    
-    .slider {
-        top: 7em;
-    }
+  .boxSettings {
+    display: none;
+  }
+
+  .slider {
+    top: 7em;
+  }
 }
 
 @media screen and (min-width: 42em) {
-    #frequent {
-        max-width: 42em;
-        top: 15em;
-        position: relative;
-    }
+  #frequent {
+    max-width: 42em;
+    top: 15em;
+    position: relative;
+  }
 
-    #less {
-        max-width: 42em;
-        top: 15em;
-        position: relative;
-    }
+  #less {
+    max-width: 42em;
+    top: 15em;
+    position: relative;
+  }
 
-    header {
-        position: fixed;
-        height: 10em;
-    }
+  header {
+    position: fixed;
+    height: 10em;
+  }
 
-    header h1 {
-        font-size: 6em;
-    }
+  header h1 {
+    font-size: 6em;
+  }
 
-    .sliderButton {
-        margin: 1.5em 0em 0.5em 2em;
-        height: 6em;
-        width: 6em;
-    }
+  .sliderButton {
+    margin: 1.5em 0em 0.5em 2em;
+    height: 6em;
+    width: 6em;
+  }
 
-    .sliderButton i {
-        font-size: 6em;
-    }
+  .sliderButton i {
+    font-size: 6em;
+  }
 
-    .sliderButton div {
-        width: 12em;
-        height: 6em;
-    }
+  .sliderButton div {
+    width: 12em;
+    height: 6em;
+  }
 
-    .boxSettings {
-        display: none;
-    }
-    
-    .slider {
-        top: 11em;
-    }
+  .boxSettings {
+    display: none;
+  }
+
+  .slider {
+    top: 11em;
+  }
 }
 
 @media screen and (min-width: 83.5em) {
-    .sliderButton {
-        margin: 0.5em 0em 0.5em 1em;
-        float: left;
-        height: 3em;
-        width: 3em;
-        overflow: hidden;
-        cursor: pointer;
-    }
+  .sliderButton {
+    margin: 0.5em 0em 0.5em 1em;
+    float: left;
+    height: 3em;
+    width: 3em;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
-    .sliderButton i {
-        display: inline;
-        float: left;
-        font-size: 3em;
-        transition: cubic-bezier(.55,0,.1,1) 0.8s;
-    }
+  .sliderButton i {
+    display: inline;
+    font-size: 3em;
+    transition: cubic-bezier(0.55, 0, 0.1, 1) 0.8s;
+  }
 
-    .sliderButton div {
-        width: 6em;
-        height: 3em;
-    }
-    
-    .slider {
-        top: 5em;
-    }
-    
-    #frequent {
-        max-width: 83.5em;
-        top: 2em;
-    }
+  .sliderButton div {
+    width: 6em;
+    height: 3em;
+  }
 
-    #less {
-        max-width: 83.5em;
-        top: 2em;
-    }
+  .slider {
+    top: 5em;
+  }
 
-    header {
-        position: relative;
-        height: 4em;
-    }
-    
-    header h1 {
-        font-size: 2.5em;
-    }
+  #frequent {
+    max-width: 83.5em;
+    top: 2em;
+  }
 
-    .boxSettings {
-        display: block;
-    }
+  #less {
+    max-width: 83.5em;
+    top: 2em;
+  }
 
-    .box:hover {
-        color: #fff;
-        box-shadow: 0px 2px 10px 3px rgba(44, 44, 44, 0.55);
-    }
+  header {
+    position: relative;
+    height: 4em;
+  }
 
-    .black:hover {
-        background-color: #212121;
-    }
+  header h1 {
+    font-size: 2.5em;
+  }
 
-    .red:hover {
-        background-color: #F44336;
-    }
+  .boxSettings {
+    display: block;
+  }
 
-    .pink:hover {
-        background-color: #E91E63;
-    }
+  .box:hover {
+    color: #fff;
+    box-shadow: 0px 2px 10px 3px rgba(44, 44, 44, 0.55);
+  }
 
-    .purple:hover {
-        background-color: #9C27B0;
-    }
+  .black:hover {
+    background-color: #212121;
+  }
 
-    .deepPurple:hover {
-        background-color: #673AB7;
-    }
+  .red:hover {
+    background-color: #f44336;
+  }
 
-    .indigo:hover {
-        background-color: #3F51B5;
-    }
+  .pink:hover {
+    background-color: #e91e63;
+  }
 
-    .blue:hover {
-        background-color: #2196F3;
-    }
+  .purple:hover {
+    background-color: #9c27b0;
+  }
 
-    .lightBlue:hover {
-        background-color: #03A9F4;
-    }
+  .deepPurple:hover {
+    background-color: #673ab7;
+  }
 
-    .cyan:hover {
-        background-color: #00BCD4;
-    }
+  .indigo:hover {
+    background-color: #3f51b5;
+  }
 
-    .teal:hover {
-        background-color: #009688;
-    }
+  .blue:hover {
+    background-color: #2196f3;
+  }
 
-    .green:hover {
-        background-color: #4CAF50;
-    }
+  .lightBlue:hover {
+    background-color: #03a9f4;
+  }
 
-    .lightGreen:hover {
-        background-color: #8BC34A;
-    }
+  .cyan:hover {
+    background-color: #00bcd4;
+  }
 
-    .lime:hover {
-        background-color: #CDDC39;
-    }
+  .teal:hover {
+    background-color: #009688;
+  }
 
-    .yellow:hover {
-        background-color: #FFEB3B;
-    }
+  .green:hover {
+    background-color: #4caf50;
+  }
 
-    .amber:hover {
-        background-color: #FFC107;
-    }
+  .lightGreen:hover {
+    background-color: #8bc34a;
+  }
 
-    .orange:hover {
-        background-color: #FF9800;
-    }
+  .lime:hover {
+    background-color: #cddc39;
+  }
 
-    .deepOrange:hover {
-        background-color: #FF5722;
-    }
+  .yellow:hover {
+    background-color: #ffeb3b;
+  }
+
+  .amber:hover {
+    background-color: #ffc107;
+  }
+
+  .orange:hover {
+    background-color: #ff9800;
+  }
+
+  .deepOrange:hover {
+    background-color: #ff5722;
+  }
 }

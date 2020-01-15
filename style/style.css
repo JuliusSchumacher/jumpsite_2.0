@@ -1,161 +1,159 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Open Sans', sans-serif;
-    transition: cubic-bezier(.55,0,.1,1) 0.5s;
-    background-color: #f5f5f5;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  transition: cubic-bezier(0.55, 0, 0.1, 1) 0.5s;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
 }
 
 .slider {
-    height:calc(100% - 5.25em);
-    width: 18em;
-    position: fixed;
-    left: -18em;
-    top:5.25em;
-    background-color: white;
-    border-right: 1px solid #000;
-    transition: cubic-bezier(.55,0,.1,1) 0.7s;
-    overflow: hidden;
-    overflow-y: auto;
+  height: calc(100% - 5.25em);
+  width: 18em;
+  position: fixed;
+  left: -18em;
+  top: 5.25em;
+  background-color: white;
+  border-right: 1px solid #000;
+  transition: cubic-bezier(0.55, 0, 0.1, 1) 0.7s;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .slider h3 {
-    color: #757575
-    width: 100%;
-    font-size: 1.5em;
-    padding: 0.5em 0;
-    font-weight: 600;
-    margin: 0;
-    height: 1.5em;
-    overflow: hidden;
-    transition: cubic-bezier(.55,0,.1,1) 0.1s;
-    cursor: pointer;
+  color: #757575;
+  width: 100%;
+  font-size: 1.5em;
+  padding: 0.5em 0;
+  font-weight: 600;
+  margin: 0;
+  height: 1.5em;
+  overflow: hidden;
+  transition: cubic-bezier(0.55, 0, 0.1, 1) 0.1s;
+  cursor: pointer;
 }
 
 .slider h3:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .slider h3 i {
-    color: rgba(0, 0, 0, 0.54);
-    margin-left: 1em;
-    margin-right: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .slider .content {
-    background-color: #f5f5f5;
-    overflow: hidden;
-    transition: cubic-bezier(.55,0,.1,1) 0.4s;
-    transform: scaleY(1);
-    transform-origin: top;
-    height: auto;
-    max-height: 0;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  transition: cubic-bezier(0.55, 0, 0.1, 1) 0.4s;
+  transform: scaleY(1);
+  transform-origin: top;
+  height: auto;
+  max-height: 0;
 }
 
 .slider .content h5 {
-    margin: 0;
-    margin-top: 1em;
-    margin-left: 3em;
-    margin-bottom: 1em;
-    font-size: 1.2em;
-    color: #393939;
+  margin: 0;
+  margin-top: 1em;
+  margin-left: 3em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  color: #393939;
 }
 
 .slider .content h5 i {
-    color: rgba(0, 0, 0, 0.54);
-    margin-right: 0.5em;
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 0.5em;
 }
 
 .slider .content p {
-    margin-left: 3.5em;
-    margin-right: 3.5em;
-    font-weight: 300;
-    color: #414141;
+  margin-left: 3.5em;
+  margin-right: 3.5em;
+  font-weight: 300;
+  color: #414141;
 }
 
 .slider input {
-    float: right;
-    margin-right: 2em;
+  float: right;
+  margin-right: 2em;
 }
 
 .slider button {
-    float: right;
-    margin-right: 2em; 
+  float: right;
+  margin-right: 2em;
 }
 
 .slider .copyright {
-    width: 100%;
-    height: 2.7em;
-    color: #454545;
-    text-align: center;
-    border-top: 1px solid #616161;
-    padding-top: 1em;
-    position: absolute;
-    bottom: 0;
-    margin: 0;
+  width: 100%;
+  height: 2.7em;
+  color: #454545;
+  text-align: center;
+  border-top: 1px solid #616161;
+  padding-top: 1em;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
 }
 
 .fader {
-    pointer-events: none;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 5.25em;
-    left: 0;
-    transition: opacity cubic-bezier(.55,0,.1,1) 0.7s;
-    transition-delay: 0.1s;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 5.25em;
+  left: 0;
+  transition: opacity cubic-bezier(0.55, 0, 0.1, 1) 0.7s;
+  transition-delay: 0.1s;
 }
 
 /* header start */
 
 header {
-	width: 100%;
-	height: 4em;
-	padding: 10px;
-	align-content: center;
-    background-color: #4CAF50;
-    color: white;
-    z-index: 1;
-    box-shadow: 0px 1px 10px 0px rgba(44, 44, 44, 0.55);
+  width: 100%;
+  height: 4em;
+  padding: 10px;
+  align-content: center;
+  background-color: #4caf50;
+  color: white;
+  z-index: 1;
+  box-shadow: 0px 1px 10px 0px rgba(44, 44, 44, 0.55);
 }
 
 header h1 {
-	font-weight: 300;
-	font-size: 2.5em;
-	width: 80%;
-    display: inline;
-    margin-left: 1em;
+  font-weight: 300;
+  font-size: 2.5em;
+  display: inline;
+  margin-left: 1em;
 }
 
 header p {
-    display: inline;
-    font-size: 0.7em;
+  display: inline;
+  font-size: 0.7em;
 }
 
 .sliderButton {
-	margin: 0.5em 0em 0.5em 1em;
-	float: left;
-	height: 3em;
-    width: 3em;
-    overflow: hidden;
-    cursor: pointer;
+  margin: 0.5em 0em 0.5em 1em;
+  float: left;
+  height: 3em;
+  width: 3em;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .sliderButton i {
-    display: inline;
-    float: left;
-    font-size: 3em;
-    transition: cubic-bezier(.55,0,.1,1) 0.8s;
+  display: inline;
+  font-size: 3em;
+  transition: cubic-bezier(0.55, 0, 0.1, 1) 0.8s;
 }
 
 .sliderButton div {
-    width: 6em;
-    height: 3em;
+  width: 6em;
+  height: 3em;
 }
 
 /* header end */
@@ -163,21 +161,21 @@ header p {
 /* box container start */
 
 #frequent {
-    min-width: auto;
-    max-width: 80vw;
-	min-height: auto;
-	margin: 0 auto;
-	margin-bottom: 2em;
-    clear: both;
-    overflow: auto;
+  min-width: auto;
+  max-width: 80vw;
+  min-height: auto;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  clear: both;
+  overflow: auto;
 }
 
 #less {
-	position: relative;
-    min-width: auto;
-	max-width: 80vw;
-    min-height: auto;
-	margin: 0 auto;
+  position: relative;
+  min-width: auto;
+  max-width: 80vw;
+  min-height: auto;
+  margin: 0 auto;
 }
 
 /* box container end */
@@ -185,277 +183,275 @@ header p {
 /* box start */
 
 .box {
-	transition: ease 0.3s;
-	/*border: 1px solid #212121;*/
-    border-radius: 0.7%;
-    box-shadow: 0px 2px 5px 1px rgba(44, 44, 44, 0.55);
-	position: relative;
-	float: left;
-	text-align: center;
-	margin: 0.3em;
-	background-color: #fff;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
+  transition: ease 0.3s;
+  /*border: 1px solid #212121;*/
+  border-radius: 0.7%;
+  box-shadow: 0px 2px 5px 1px rgba(44, 44, 44, 0.55);
+  position: relative;
+  float: left;
+  text-align: center;
+  margin: 0.3em;
+  background-color: #fff;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 #frequent .box {
-	width: 20em;
-	height: 20em;
+  width: 20em;
+  height: 20em;
 }
 
 #less .box {
-	width: 9.7em;
-	height: 9.7em;
+  width: 9.7em;
+  height: 9.7em;
 }
 
 #less .box h4 {
-	font-size: 28px;
-	font-weight: 300;
-	position: relative;
-	margin-top: 3.5em;
+  font-size: 28px;
+  font-weight: 300;
+  position: relative;
+  margin-top: 3.5em;
 }
 
 #less .box .boxSettings {
-    font-size: 2em;
-    position: absolute;
-    right: 0.3em;
-    top: 0.1em;
-    border-radius: 100%;
-    transition: transform 0.5s cubic-bezier(.55,0,.1,1);
+  font-size: 2em;
+  position: absolute;
+  right: 0.3em;
+  top: 0.1em;
+  border-radius: 100%;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 #less .box .boxIcon {
-    position: absolute;
-    font-size: 4em;
-    top: 0.5em;
-    left: 0.75em;
+  position: absolute;
+  font-size: 4em;
+  top: 0.5em;
+  left: 0.75em;
 }
 
 #frequent .box h4 {
-	font-size: 45px;
-	font-weight: 300;
-    margin-top: 4.5em;
+  font-size: 45px;
+  font-weight: 300;
+  margin-top: 4.5em;
 }
 
 #frequent .box .boxSettings {
-    font-size: 3em;
-    position: absolute;
-    right: 0.4em;
-    top: 0.1em;
-    border-radius: 100%;
-    transition: transform 0.5s cubic-bezier(.55,0,.1,1);
+  font-size: 3em;
+  position: absolute;
+  right: 0.4em;
+  top: 0.1em;
+  border-radius: 100%;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 #frequent .box .boxIcon {
-    position: absolute;
-    font-size: 8em;
-    top: 0.5em;
-    left: 0.75em;
+  position: absolute;
+  font-size: 8em;
+  top: 0.5em;
+  left: 0.75em;
 }
 
 /* box end */
 
 /*box option pane*/
 .options {
-    background-color: #fff;
-    color: #656565;
-    width: 100%;
-    height: 0%;
-    position: absolute;
-    left: 0px;
-    bottom: -1px;
-    transition: height 0.5s cubic-bezier(.55,0,.1,1);
-    overflow: hidden;
-    border-top: inherit;
+  background-color: #fff;
+  color: #656565;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  transition: height 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+  border-top: inherit;
 }
 
 .options h6 {
-    margin: 1em auto;
-    font-weight: 400;
-    font-size: 1.5em;
+  margin: 1em auto;
+  font-weight: 400;
+  font-size: 1.5em;
 }
 
 #less .options h6 {
-    margin: 0.2em auto;
-    font-size: 1.1em;
+  margin: 0.2em auto;
+  font-size: 1.1em;
 }
 
 .options input {
-    font-family: 'Open Sans', sans-serif;
-    display: block;
-    margin: 1em auto;
-    width: 60%
+  font-family: "Open Sans", sans-serif;
+  display: block;
+  margin: 1em auto;
+  width: 60%;
 }
 
 #less .options input {
-    font-size: 0.7em;
-    margin: 0.2em auto;
+  font-size: 0.7em;
+  margin: 0.2em auto;
 }
 
 .options input:focus {
-    outline: none;
+  outline: none;
 }
 
 .options select {
-    position: relative;
-    width: 30%;
+  position: relative;
+  width: 30%;
 }
 
 .options .delete {
-    font-size: 1.2em;
-    position: relative;
-    left: -21%;
-    bottom: -1em;
-    padding: 0.2em;
-    border-radius: 10%;
-    background-color: #fff;
-    border: 1px solid #EEEEEE;
-    color: #EEEEEE;
+  font-size: 1.2em;
+  position: relative;
+  left: -21%;
+  bottom: -1em;
+  padding: 0.2em;
+  border-radius: 10%;
+  background-color: #fff;
+  border: 1px solid #eeeeee;
+  color: #eeeeee;
 }
 
 .options .delete:hover {
-    color: #fff;
-    background-color: #F44336;
-    border: 1px solid #F44336;
+  color: #fff;
+  background-color: #f44336;
+  border: 1px solid #f44336;
 }
 
 .options .save {
-    font-size: 1.2em;
-    position: relative;
-    right: -21%;
-    bottom: -1em;
-    padding: 0.2em;
-    border-radius: 10%;
-    background-color: #fff;
-    border: 1px solid #BDBDBD;
-    color: #BDBDBD;
+  font-size: 1.2em;
+  position: relative;
+  right: -21%;
+  bottom: -1em;
+  padding: 0.2em;
+  border-radius: 10%;
+  background-color: #fff;
+  border: 1px solid #bdbdbd;
+  color: #bdbdbd;
 }
 
 .options .save:hover {
-    color: #fff;
-    background-color: #00E676;
-    border: 1px solid #00E676;
+  color: #fff;
+  background-color: #00e676;
+  border: 1px solid #00e676;
 }
 
 #less .options i {
-    bottom: -0.2em;
-    padding: 0.1em;
+  bottom: -0.2em;
+  padding: 0.1em;
 }
 
 #less .options .delete {
-    left: -15%;
+  left: -15%;
 }
 
 #less .options .save {
-    right: -15%;
+  right: -15%;
 }
 
 /* color classes */
 .black {
-    color: #212121;
+  color: #212121;
 }
 
 .red {
-    color: #F44336;
+  color: #f44336;
 }
 
 .pink {
-    color: #E91E63;
+  color: #e91e63;
 }
 
 .purple {
-    color: #9C27B0;
+  color: #9c27b0;
 }
 
 .deepPurple {
-    color: #673AB7;
+  color: #673ab7;
 }
 
 .indigo {
-    color: #3F51B5;
+  color: #3f51b5;
 }
 
 .blue {
-    color: #2196F3;
+  color: #2196f3;
 }
 
 .lightBlue {
-    color: #03A9F4;
+  color: #03a9f4;
 }
 
 .cyan {
-    color: #00BCD4;
+  color: #00bcd4;
 }
 
 .teal {
-    color: #009688;
+  color: #009688;
 }
 
 .green {
-    color: #4CAF50;
+  color: #4caf50;
 }
 
 .lightGreen {
-    color: #8BC34A;
+  color: #8bc34a;
 }
 
 .lime {
-    color: #CDDC39;
+  color: #cddc39;
 }
 
 .yellow {
-    color: #FFEB3B;
+  color: #ffeb3b;
 }
 
 .amber {
-    color: #FFC107;
+  color: #ffc107;
 }
 
 .orange {
-    color: #FF9800;
+  color: #ff9800;
 }
 
 .deepOrange {
-    color: #FF5722;
+  color: #ff5722;
 }
 
 /* jQuery classes*/
 
 .open {
-    height: 85%;
+  height: 85%;
 }
 
 .slide {
-    margin-left: -3em;
+  margin-left: -3em;
 }
 
 .slideOut {
-    left: 0;
+  left: 0;
 }
 
 .faded {
-    pointer-events: all;
-    opacity: 100;
+  pointer-events: all;
+  opacity: 100;
 }
 
 .read {
-    background-color: #e1e1e1;
+  background-color: #e1e1e1;
 }
 
 .readable {
-    transform: scaleY(1);
+  transform: scaleY(1);
 }
 
 .rotate {
-    -webkit-transform : rotate(180deg);
-    -moz-transform : rotate(180deg);
-    -ms-transform : rotate(180deg);
-    transform : rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
-.click
