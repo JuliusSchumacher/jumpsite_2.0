@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "http-server",
+    "server": "http-server -c-1",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.0",
+    "standard": "^14.3.1"
+  }
+}
